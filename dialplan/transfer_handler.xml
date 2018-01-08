@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	This context is designed only to be accessed by channels which are bridged and receive a
-	transfer/REFER.  The force_transfer_context channel variable is set prior to executing a
-	bridge so that the channel's ROUTING state will process this context for handling a transfer/REFER.
+    This context is designed only to be accessed by channels which are bridged and receive a
+    transfer/REFER.  The force_transfer_context channel variable is set prior to executing a
+    bridge so that the channel's ROUTING state will process this context for handling a transfer/REFER.
 
-	This context is NOT designed to be associated with any SIP profile.  If that is maintained, no call sent to
-	this box can directly access this context (at least that is one way to implement this).
+    This context is NOT designed to be associated with any SIP profile.  If that is maintained, no call sent to
+    this box can directly access this context (at least that is one way to implement this).
 
-	When a channel performs a bridge in another context (e.g. the default context), do your bridge something like this:
-	<action application="set" data="force_transfer_context=transfer_handler"/>
-	<action application="bridge" data="YOUR DESTINATION!!!"/>
+    When a channel performs a bridge in another context (e.g. the default context), do your bridge something like this:
+    <action application="set" data="force_transfer_context=transfer_handler"/>
+    <action application="bridge" data="YOUR DESTINATION!!!"/>
 
-	However, BEWARE!!!  Leaving force_transfer_context set to this context will affect ANY transfer of a channel
-	for the time that force_transfer_context is set.
+    However, BEWARE!!!  Leaving force_transfer_context set to this context will affect ANY transfer of a channel
+    for the time that force_transfer_context is set.
 
-	So, for example, if you have some kind of continuation after a bridge, you may want to do something like:
+    So, for example, if you have some kind of continuation after a bridge, you may want to do something like:
 
-	<action application="set" data="force_transfer_context=transfer_handler"/>
-	<action application="bridge" data="YOUR DESTINATION!!!"/>
-	<action application="unset" data="force_transfer_context"/>
+    <action application="set" data="force_transfer_context=transfer_handler"/>
+    <action application="bridge" data="YOUR DESTINATION!!!"/>
+    <action application="unset" data="force_transfer_context"/>
 --> 
 <include>
-	<context name="transfer_handler">
-		<extension name="TRANSFER">
-			<condition field="destination_number" expression="^(.*)$">
-				<action application="log" data="INFO Using the transfer_handler context to bridge a call to $1."/>
-				<action application="set" data="park_reason=REFER"/>
-				<action application="park" />
-			</condition>
-		</extension>
-	</context>
+    <context name="transfer_handler">
+        <extension name="TRANSFER">
+            <condition field="destination_number" expression="^(.*)$">
+                <action application="log" data="INFO Using the transfer_handler context to bridge a call to $1."/>
+                <action application="set" data="park_reason=REFER"/>
+                <action application="park" />
+            </condition>
+        </extension>
+    </context>
 </include>  
