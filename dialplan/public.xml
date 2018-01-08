@@ -11,18 +11,18 @@
 
 <!-- http://wiki.freeswitch.org/wiki/Dialplan_XML -->
 <include>
-	<context name="public">
+    <context name="public">
 
-		<extension name="tone_stream">
-			<condition field="destination_number" expression="^9998889198$">
-				<action application="answer"/>
-				<action application="playback" data="{loops=10}tone_stream://path=${conf_dir}/tetris.ttml"/>
-			</condition>
-		</extension>
+        <extension name="tone_stream">
+            <condition field="destination_number" expression="^9198$">
+                <action application="answer"/>
+                <action application="playback" data="{loops=10}tone_stream://path=${conf_dir}/tetris.ttml"/>
+            </condition>
+        </extension>
 
-		<!--
-		You can place files in the public directory to get included.
-		-->
-		<X-PRE-PROCESS cmd="include" data="public/*.xml"/>
-	</context>
+        <!--
+        You can place files in the public directory to get included.
+        -->
+        <X-PRE-PROCESS cmd="include" data="public/*.xml"/>
+    </context>
 </include>
