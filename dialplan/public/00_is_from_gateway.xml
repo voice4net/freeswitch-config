@@ -1,0 +1,11 @@
+<include>
+	<extension name="is_from_gateway">
+		<condition field="${direction}" expression="^inbound$">
+			<condition field="${sip_gateway}" expression="(?!^$)">
+				<condition field="${transfer_source}" expression="^$">
+					<action application="transfer" data="${sip_to_user} XML public"/>
+				</condition>
+			</condition>
+		</condition>
+	</extension>
+</include>
