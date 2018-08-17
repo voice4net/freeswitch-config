@@ -140,8 +140,10 @@
         <!--<load module="mod_nibblebill"/>-->
         <!--<load module="mod_callcenter"/>-->
 
-        <!-- Voice4Net mod_amd module -->
+        <!-- Voice4Net modules -->
         <!-- <load module="mod_amd"/> -->
+		<!-- <load module="mod_wait_for_connect"/> -->
+		<!-- <load module="mod_unicast"/> -->
 
     </modules>
 </configuration>
