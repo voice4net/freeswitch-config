@@ -24,7 +24,7 @@
 	<descriptors>
 		<!-- These tones are defined in Annex to ITU Operational Bulletin No. 781 - 1.II.2003 -->
 		<!-- Various Tones Used in National Networks (According to ITU-T Recommendation E.180)(03/1998) -->
-		
+
 		<!-- North America -->
 		<descriptor name="1">
 			<tone name="CED_TONE">
@@ -49,6 +49,7 @@
 				<element freq1="480" freq2="620" min="464" max="536"/>
 			</tone>
 		</descriptor>
+
 		<!-- United Kingdom -->
 		<descriptor name="44">
 			<tone name="CED_TONE">
@@ -72,6 +73,7 @@
 				<element freq1="0" freq2="0" min="352" max="384"/>
 			</tone>
 		</descriptor>
+
 		<!-- Germany -->
 		<descriptor name="49">
 			<tone name="CED_TONE">
@@ -92,7 +94,6 @@
 			</tone>
 		</descriptor>
 
-		<!-- BEGIN AMD DESCRIPTOR
 		<descriptor name="amd">
 			<tone name="CED_TONE">
 				<element freq1="2100" freq2="0" min="700" max="0"/>
@@ -113,7 +114,6 @@
 				<element freq1="480" freq2="620" min="464" max="536"/>
 			</tone>
 		</descriptor>
-		END AMD DESCRIPTOR -->
 
 	</descriptors>
 </configuration>
