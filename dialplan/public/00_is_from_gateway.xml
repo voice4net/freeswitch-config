@@ -56,7 +56,7 @@
 			<!-- check that the sip_gateway variable is NOT empty -->
 			<condition field="${sip_gateway}" expression="(?!^$)">
 				<!-- check that the park_reason channel variable is set to a valid value ending in "_new_call" -->
-				<condition field="${park_reason}" expression="^\w+_new_call$">
+				<condition field="${park_reason}" expression="^[\w-]+_new_call$">
 					<!-- park the call so that the IVR/CC application can handle it -->
 					<action application="park"/>
 				</condition>
